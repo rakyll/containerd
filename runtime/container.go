@@ -10,7 +10,7 @@ import (
 
 type Process interface {
 	io.Closer
-	Pid() (int, error)
+	PID() (int, error)
 	Spec() specs.Process
 	Signal(os.Signal) error
 }
@@ -81,8 +81,8 @@ type Container interface {
 	Start() error
 	// Path returns the path to the bundle
 	Path() string
-	// Pid returns the container's init process id
-	Pid() (int, error)
+	// PID returns the container's init process id
+	PID() (int, error)
 	// SetExited sets the exit status of the container after its init dies
 	SetExited(status int)
 	// Delete deletes the container
